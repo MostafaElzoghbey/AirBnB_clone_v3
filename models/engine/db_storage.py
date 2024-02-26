@@ -91,8 +91,4 @@ class DBStorage:
         Returns the number of objects in storage matching the given class name.
         If no name is passed, returns the count of all objects in storage.
         """
-        nobjects = 0
-        for clss in classes:
-            if cls is None or cls is classes[clss] or cls is clss:
-                nobjects += len(self.__session.query(classes[clss]).all())
-        return nobjects
+        return (len(self.all(cls)))
